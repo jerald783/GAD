@@ -1,0 +1,56 @@
+<app-header></app-header>
+
+<div class="content">
+  <div class="max-w-md mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg">
+    <h2 class="text-2xl font-bold mb-4">📋 Incident Report Form</h2>
+    <form [formGroup]="incidentForm" (ngSubmit)="submitForm()">
+      <div class="mb-4">
+        <label class="block text-gray-700">Full Name:</label>
+        <input
+          type="text"
+          formControlName="fullName"
+          class="w-full border rounded-md p-2"
+          required
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700">Email:</label>
+        <input
+          type="email"
+          formControlName="email"
+          class="w-full border rounded-md p-2"
+          required
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700">Incident Date:</label>
+        <input
+          type="date"
+          formControlName="incidentDate"
+          class="w-full border rounded-md p-2"
+          required
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700">Incident Details:</label>
+        <textarea
+          formControlName="details"
+          class="w-full border rounded-md p-2"
+          rows="4"
+          required
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="incidentForm.invalid"
+        class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+      >
+        🚀 Submit Report
+      </button>
+    </form>
+  </div>
+</div>

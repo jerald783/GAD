@@ -1,0 +1,242 @@
+// -----------------------------------------
+// General Styles
+// -----------------------------------------
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.content {
+  margin: 10px;
+  padding: 10px;
+  // box-sizing: border-box;
+}
+
+// -----------------------------------------
+// Banner & Carousel
+// -----------------------------------------
+.carousel-item .banner {
+  background-size: 100% 450px;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner {
+  margin: 10px auto;
+  padding: 10px;
+  // background-color: #f0f0f0;
+  // border: 1px solid #ccc;
+}
+
+// -----------------------------------------
+// Post Card (Desktop + Mobile)
+// -----------------------------------------
+.btn-purple {
+  background-color: #6a1b9a;
+  color: white;
+
+  &:hover {
+    background-color: #4a148c;
+  }
+}
+.floating-gad-reminder {
+  position: fixed;
+  top: 100px;                // Distance from top
+  left: 50%;                // Center horizontally
+  transform: translateX(-50%);
+  z-index: 1050;
+  background-color: #ffffff;
+  border-radius: 12px;
+  width: 90%;
+  height: 110PX;
+  max-width: 320px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeSlideInTop 0.5s ease;
+}
+
+@keyframes fadeSlideInTop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+// -----------------------------------------
+// Close Button for Floating Post Card
+// -----------------------------------------
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  mat-icon {
+    font-size: 28px;
+    color: rgba(0, 0, 0, 0.6);
+    transition: color 0.2s ease;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+
+    mat-icon {
+      color: rgba(0, 0, 0, 0.85);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid #6a1b9a;
+    outline-offset: 2px;
+  }
+}
+
+// Floating Action Button (FAB)
+.fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #6f42c1;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  mat-icon {
+    font-size: 24px;
+  }
+}
+// -----------------------------------------
+// Floating Post Card - Centered Overlay
+// -----------------------------------------
+.floating-post-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 999;
+  background-color: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+
+  .card {
+    padding: 1rem;
+  }
+}
+@media (max-width: 400px) {
+  .floating-post-card {
+    width: 95%;
+  }
+}
+
+//Back to Top Button
+.top-btn {
+  position: fixed;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+  outline: none; // ← removes default focus ring
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+
+  mat-icon {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+    transition: color 0.3s ease;
+  }
+
+  &:hover mat-icon {
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  // Removes border on focus (for some browsers)
+  &:focus,
+  &:active {
+    outline: none;
+    border: none;
+  }
+
+  // 🔽 Default: Mobile layout (top-center)
+  top: 500px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+// ✅ Override for Desktop: bottom-right position
+@media (min-width: 768px) {
+  .top-btn {
+    top: auto;
+    bottom: 20px;
+    left: auto;
+    right: 20px;
+    transform: none;
+  }
+}
+
+.floating-gad-reminder {
+  position: fixed;
+  bottom: 80px;
+  right: 16px;
+  z-index: 1050;
+  background-color: #ffffff;
+  border-radius: 12px;
+  width: 85%;
+  max-width: 300px;
+  animation: fadeSlideIn 0.5s ease;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+

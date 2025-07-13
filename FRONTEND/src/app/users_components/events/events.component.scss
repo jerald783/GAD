@@ -1,0 +1,178 @@
+//Global Styles
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.content {
+  margin: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.container .row {
+  align-content: center;
+}
+
+.row {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+//Carousel Section
+.carousel-item .banner {
+  background-size: 100% 450px;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner {
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+}
+//Sidebar (Search + Upcoming Events)
+.widget {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-bottom: 4px solid rgb(95, 1, 99);
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.widget h2,
+.widget h5 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.widget input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.widget button {
+  padding: 10px 20px;
+  background-color: rgb(95, 1, 99);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.widget button:hover {
+  background-color: rgb(95, 1, 99);
+}
+
+.widget ul {
+  list-style: none;
+  padding: 0;
+}
+
+.widget ul li {
+  margin-bottom: 10px;
+}
+
+.widget ul li a {
+  text-decoration: none;
+  color: rgb(95, 1, 99);
+}
+
+.widget ul li a:hover {
+  text-decoration: underline;
+}
+
+//Event Post Content
+.post {
+  background: #fff;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post h1,
+.post h4 {
+  font-size: 24px;
+  color: #333;
+}
+
+.post .meta {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 15px;
+}
+//Back to Top Button
+.top-btn {
+  position: fixed;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+  outline: none; // ← removes default focus ring
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+
+  mat-icon {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+    transition: color 0.3s ease;
+  }
+
+  &:hover mat-icon {
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  // Removes border on focus (for some browsers)
+  &:focus,
+  &:active {
+    outline: none;
+    border: none;
+  }
+
+  // 🔽 Default: Mobile layout (top-center)
+  top: 500px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+// ✅ Override for Desktop: bottom-right position
+@media (min-width: 768px) {
+  .top-btn {
+    top: auto;
+    bottom: 20px;
+    left: auto;
+    right: 20px;
+    transform: none;
+  }
+}
+
+.reactions button {
+  font-size: 14px;
+  padding: 4px 8px;
+}
+
+
+

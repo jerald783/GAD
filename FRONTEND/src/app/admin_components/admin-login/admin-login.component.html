@@ -1,0 +1,75 @@
+<nav>
+  <div class="header">
+    <img src="assets/img/UPM_LOGO.png" alt="UPM Logo" />
+    <h1>University of the Philippines Mindanao</h1>
+  </div>
+
+  <div class="content">
+    <div class="card">
+      <h2>Login</h2>
+      <form (ngSubmit)="onLogin()">
+        <div class="input-container">
+          <input
+            type="text"
+            id="username"
+            [(ngModel)]="username"
+            name="username"
+            required
+            placeholder=" "
+          />
+          <label for="username">Username</label>
+        </div>
+
+        <div class="input-container">
+          <div class="password-wrapper">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              [(ngModel)]="password"
+              name="password"
+              placeholder=""
+              required
+            />
+            
+            <label for="password">Password</label>
+            <mat-icon class="eye-icon" (click)="togglePasswordVisibility()">
+              {{ showPassword ? 'visibility' : 'visibility_off' }}
+            </mat-icon>
+          </div>
+        </div>
+
+        <button class="btn-custom" type="submit">Login</button>
+      </form>
+
+      <div *ngIf="loginMessage" class="login-message">
+        <p>{{ loginMessage }}</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>About Us</h2>
+      <h6 class="fw-bold">Mission</h6>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        voluptate praesentium eligendi maxime animi assumenda incidunt,
+        excepturi vel nihil, possimus nostrum fuga, non corporis nobis ea totam
+        quo sint asperiores.
+      </p>
+
+      <h6 class="fw-bold">Vision</h6>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium
+        perferendis a sit nostrum voluptatibus mollitia minus quos. Saepe dolore
+        excepturi illum libero molestiae tempora adipisci possimus. Quia
+        possimus aut iste!
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      UP MINDANAO | Inventory Ticketing System v1.0.0 |
+      <a href="#">Changelog</a>
+    </p>
+  </footer>
+</nav>

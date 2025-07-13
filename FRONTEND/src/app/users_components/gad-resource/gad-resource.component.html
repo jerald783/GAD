@@ -1,0 +1,32 @@
+<app-header></app-header>
+<br><br><br>
+<div class="resource-container">
+  <div class="resource-grid">
+    <mat-card *ngFor="let category of resources" class="resource-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon class="mr-1">folder</mat-icon>
+          {{ category.title }}
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-divider></mat-divider>
+
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>View Resources</mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <ul>
+            <li *ngFor="let item of category.items">
+              <a [href]="item.link" target="_blank">
+                <mat-icon>description</mat-icon> {{ item.name }}
+              </a>
+            </li>
+          </ul>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card>
+  </div>
+</div>

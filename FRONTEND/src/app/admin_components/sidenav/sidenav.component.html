@@ -1,0 +1,101 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+      <div class="head-user-avatar-container d-flex align-items-center">
+        <div class="head-user-avatar">
+          <mat-icon class="user-avatar">account_circle</mat-icon>
+          <div class="circle-indicator pulse"></div>
+        </div>
+      </div>
+
+
+      <a class="navbar-brand" [routerLink]="[{ outlets: { secondary: ['dashboard'] } }]">
+        <h1>UPMIN GAD</h1>
+      </a>
+      <button class="btnMenu" mat-button (click)="opened = !opened">
+        <mat-icon class="menu">{{ opened ? "close" : "menu" }}</mat-icon>
+      </button>
+    </nav>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav scroller ">
+  <mat-sidenav [(opened)]="opened" mode="side">
+    <mat-list style="align-items: center">
+
+      <img src="assets/img/GAD_LOGO.png" alt="GAD Logo" class="gadlogo" />
+
+    </mat-list>
+
+    <mat-list>
+      <mat-list-item>
+        <mat-icon>home</mat-icon>
+        <a [routerLink]="[{ outlets: { secondary: ['dashboard'] } }]">Home</a>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>dashboard</mat-icon>
+        <a [routerLink]="[{ outlets: { secondary: ['dashboard'] } }]">Dashboard</a>
+      </mat-list-item>
+
+      <mat-list-item (click)="toggleMasterFileMenu()">
+        <mat-icon>folder</mat-icon> <a>Master File</a>
+        <mat-icon *ngIf="isMasterFileMenuOpen">expand_less</mat-icon>
+        <mat-icon *ngIf="!isMasterFileMenuOpen">expand_more</mat-icon>
+      </mat-list-item>
+
+      <div *ngIf="isMasterFileMenuOpen" class="ml-3 dropw">
+        <mat-list>
+          <mat-list-item>
+            <mat-icon>event</mat-icon><a [routerLink]="[{ outlets: { secondary: ['GADevents'] } }]"
+              matTooltip="GAD Events" matTooltipPosition="above" matTooltipShowDelay="500">GAD Events</a>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon>event</mat-icon><a [routerLink]="[{ outlets: { secondary: ['admin-repo'] } }]"
+              matTooltip="GAD Repository" matTooltipPosition="above" matTooltipShowDelay="500">GAD Repository</a>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon>equalizer</mat-icon>
+            <a [routerLink]="[{ outlets: { secondary: ['dashboard'] } }]" matTooltip="Sex Disaggregated Data"
+              matTooltipPosition="above" matTooltipShowDelay="500">
+              Sex Disaggregated Data
+            </a>
+
+          </mat-list-item>
+
+        </mat-list>
+      </div>
+
+      <mat-list-item>
+        <mat-icon>settings</mat-icon>
+        <a [routerLink]="[{ outlets: { secondary: ['admin-register'] } }]">User</a>
+      </mat-list-item>
+    </mat-list>
+
+    <mat-list class="user-nav-list">
+      <div class="user-nav-container d-flex align-items-center">
+        <div class="user-info dropdown">
+          <button class="btn user-btn d-flex align-items-center" id="userDropdown" mat-button
+            [matMenuTriggerFor]="userMenu">
+            <mat-icon>account_circle</mat-icon>
+            <span class="ml-2">{{ username }}</span>
+          </button>
+          <mat-menu #userMenu="matMenu">
+            <button mat-menu-item (click)="logOut()">
+              <mat-icon>logout</mat-icon>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+    </mat-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet name="secondary"></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<footer>
+  <p>UP MINDANAO | Gender Portal Information System v1.0.0 | <a href="#">Changelog</a></p>
+</footer>

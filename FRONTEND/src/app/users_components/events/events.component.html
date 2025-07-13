@@ -1,0 +1,69 @@
+<app-header></app-header>
+<div class="content">
+  <h3 class="mt-5">Events</h3>
+  <p class="text-muted">
+  </p>
+  <!-- Carousel Section -->
+  <div id="bannerCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="banner" style="background-image: url('assets/img/Banner/Pic0.jpg')"></div>
+      </div>
+      <div class="carousel-item" *ngFor="let img of [1, 2, 3, 4, 5]">
+        <div class="banner" [style.backgroundImage]="
+              'url(assets/img/Banner/Pic' + img + '.jpg)'
+            "></div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#bannerCarousel" role="button" data-slide="prev" aria-label="Previous Slide">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </a>
+    <a class="carousel-control-next" href="#bannerCarousel" role="button" data-slide="next" aria-label="Next Slide">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <!-- Main Content Section -->
+  <div class="content container mt-4">
+    <div class="row">
+      <!-- Sidebar: col-12 for mobile, col-md-4 for medium+ screens -->
+      <div class="col-12 col-md-4">
+        <div class="widget card p-3 mb-3">
+          <h5>Search</h5>
+          <input type="text" [(ngModel)]="searchTerm" (input)="searchEvents()" placeholder="Search events..."
+            class="form-control mb-3" />
+        </div>
+
+        <div class="widget card p-3">
+          <h5>Upcoming Events</h5>
+          <ul class="list-unstyled">
+            <li *ngFor="let recent of EventsList | slice:0:5">
+              <a href="#" class="recent-post-link">{{ recent.EventName }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-12 col-md-8">
+        <div class="post card p-3 mb-3" *ngFor="let dataItem of EventsList">
+          <h4 class="post-title">{{ dataItem.EventName }}</h4>
+          <p class="post-title">{{ dataItem.Status }}</p>
+          <div class="meta text-muted mb-2">
+            <span>📅 {{ dataItem.EventDate | date : 'MMM d, y' }}</span> |
+            <span>👤 GAD</span> |
+            <span>⏰ {{ dataItem.EventTime }}</span>
+          </div>
+          <p>{{ dataItem.EventDescription }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="myBtn" (click)="topFunction()" class="top-btn" aria-label="Go to Top">
+    <mat-icon>keyboard_double_arrow_up</mat-icon>
+  </button>
+
+</div>

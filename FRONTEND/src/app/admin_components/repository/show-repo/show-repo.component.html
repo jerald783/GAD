@@ -1,0 +1,80 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary float-right m-2 d-none d-md-block" data-toggle="modal" data-target="#exampleModal"
+  (click)="addClick()" data-backdrop="false" data-keyboard="false">
+  Add Repository
+</button>
+
+<!-- Floating button for mobile -->
+<button type="button" class="btn btn-primary d-md-none floating-btn" data-toggle="modal" data-target="#exampleModal"
+  (click)="addClick()" data-backdrop="false" data-keyboard="false">
+  <mat-icon>add</mat-icon>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-l" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeClick()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <app-add-edit-repo [repo]="repo" *ngIf="ActivateAddEditRepoComp"></app-add-edit-repo>
+    
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Responsive Table -->
+<div class="mat-elevation-z8 table-responsive">
+  <table mat-table [dataSource]="dataSource" class="mat-table">
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let dataItem"> {{dataItem.Date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Project_Title">
+      <th mat-header-cell *matHeaderCellDef > Project Title </th>
+      <td mat-cell *matCellDef="let dataItem"  class="word-wrap"> {{dataItem.Project_Title }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Project_Leader">
+      <th mat-header-cell *matHeaderCellDef> Project Leader </th>
+      <td mat-cell *matCellDef="let dataItem"> {{dataItem.Project_Leader}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Funding_Source">
+      <th mat-header-cell *matHeaderCellDef> Funding Source </th>
+      <td mat-cell *matCellDef="let dataItem"> {{dataItem.Funding_Source}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Budget">
+      <th mat-header-cell *matHeaderCellDef> Budget </th>
+      <td mat-cell *matCellDef="let dataItem"> {{dataItem.Budget}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Options">
+      <th mat-header-cell *matHeaderCellDef class="text-right"> Options </th>
+      <td mat-cell *matCellDef="let dataItem" class="text-right">
+        <button mat-icon-button color="warn" type="button" data-toggle="modal" data-target="#exampleModal"
+          (click)="editClick(dataItem)" data-backdrop="false" data-keyboard="false">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="accent" (click)="deleteClick(dataItem)">
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<!-- Paginator -->
+<mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons ></mat-paginator>

@@ -1,0 +1,37 @@
+<div class="form-container">
+  <div class="form-group">
+    <label>Event Name</label>
+    <input type="text" class="form-control" [(ngModel)]="EventName" placeholder="Enter Event Name" />
+  </div>
+  <div class="form-group">
+    <label>Details</label>
+    <textarea class="form-control" [(ngModel)]="Status" placeholder="Enter Details"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Event Date</label>
+    <input type="date" class="form-control" [(ngModel)]="EventDate" />
+  </div>
+  <div class="form-group">
+    <label>Event Time</label>
+    <input type="time" class="form-control" [(ngModel)]="EventTime" />
+  </div>
+  <div class="form-group">
+    <label>Venue</label>
+    <input type="text" class="form-control" [(ngModel)]="Venue" placeholder="Enter Venue" />
+  </div>
+  <div class="form-group">
+    <label>Notification Date</label>
+    <input type="date" class="form-control" [(ngModel)]="Notif_Date" />
+  </div>
+  <div class="form-group">
+    <label>Filename</label>
+    <input type="text" class="form-control" [(ngModel)]="Filename" placeholder="Enter Filename" />
+  </div>
+  <div class="form-group">
+    <label>Upload File</label>
+    <input type="file" (change)="uploadFile($event)" class="form-control mt-2" />
+  </div>
+
+  <button (click)="addEvents()" class="btn btn-primary" *ngIf="events.Id == 0">Save</button>
+  <button (click)="updateEvents()" class="btn btn-warning" *ngIf="events.Id != 0">Update</button>
+</div>

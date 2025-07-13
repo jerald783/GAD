@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Admin\\Desktop\\GAD\\backend\\wwwroot\\assets\\config.json",
+      "PackagePath": "staticwebassets\\assets\\config.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BACKEND.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BACKEND.props",
+      "PackagePath": "build\\BACKEND.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BACKEND.props",
+      "PackagePath": "buildMultiTargeting\\BACKEND.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BACKEND.props",
+      "PackagePath": "buildTransitive\\BACKEND.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

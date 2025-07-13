@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "zH5VfMMdJW33iwsE9gMyOoastuI3AkePBS+s6Vwoj68=",
+  "Source": "BACKEND",
+  "BasePath": "_content/BACKEND",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "BACKEND\\wwwroot",
+      "Source": "BACKEND",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\GAD\\backend\\wwwroot\\",
+      "BasePath": "_content/BACKEND",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Admin\\Desktop\\GAD\\backend\\wwwroot\\assets\\config.json",
+      "SourceId": "BACKEND",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\GAD\\backend\\wwwroot\\",
+      "BasePath": "_content/BACKEND",
+      "RelativePath": "assets/config.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\config.json"
+    }
+  ]
+}

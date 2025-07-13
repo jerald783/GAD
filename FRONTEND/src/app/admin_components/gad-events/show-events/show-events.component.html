@@ -1,0 +1,116 @@
+<button type="button" class="btn btn-success float-left m-2 d-none d-md-block" (click)="exportToExcel()">
+  <mat-icon>table_view</mat-icon> 
+</button>
+<button type="button" class="btn btn-success d-md-none floating-btn mobile-floating-left mobile-floating-excel" (click)="exportToExcel()">
+  <mat-icon>table_view</mat-icon>
+</button>
+
+<button type="button" class="btn btn-danger float-left m-2 d-none d-md-block" (click)="exportToPDF()">
+  <mat-icon>picture_as_pdf</mat-icon> 
+</button>
+<button type="button" class="btn btn-danger d-md-none floating-btn mobile-floating-left" (click)="exportToPDF()">
+  <mat-icon>picture_as_pdf</mat-icon>
+</button>
+
+<button type="button" class="btn btn-primary float-right m-2 d-none d-md-block" data-toggle="modal" data-target="#exampleModal"
+  (click)="addClick()" data-backdrop="false" data-keyboard="false">
+  Add Events
+</button>
+
+<!-- Floating button for mobile -->
+<button type="button" class="btn btn-primary d-md-none floating-btn" data-toggle="modal" data-target="#exampleModal"
+  (click)="addClick()" data-backdrop="false" data-keyboard="false">
+  <mat-icon>add</mat-icon>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-l" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeClick()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <app-add-edit-events [events]="events" *ngIf="ActivateAddEditEventsComp"></app-add-edit-events>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Responsive Table -->
+<div class="mat-elevation-z8 table-responsive">
+  <table mat-table [dataSource]="dataSource" class="mat-table">
+    <ng-container matColumnDef="EventName">
+      <th mat-header-cell *matHeaderCellDef> Event Name</th>
+      <td mat-cell *matCellDef="let dataItem" class="word-wrap">{{dataItem.EventName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef> Details</th>
+      <td mat-cell *matCellDef="let dataItem">{{dataItem.Status}}</td>
+  </ng-container>
+    <ng-container matColumnDef="EventDate">
+      <th mat-header-cell *matHeaderCellDef >Event Date</th>
+      <td mat-cell *matCellDef="let dataItem"  >{{dataItem.EventDate }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="EventTime">
+      <th mat-header-cell *matHeaderCellDef>Event Time</th>
+      <td mat-cell *matCellDef="let dataItem">{{dataItem.EventTime}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Venue">
+      <th mat-header-cell *matHeaderCellDef> Venue</th>
+      <td mat-cell *matCellDef="let dataItem">{{dataItem.Venue}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Notif_Date">
+      <th mat-header-cell *matHeaderCellDef> Notif Date</th>
+      <td mat-cell *matCellDef="let dataItem">{{dataItem.Notif_Date}}</td>
+    </ng-container>
+
+      <ng-container matColumnDef="Filename">
+        <th mat-header-cell *matHeaderCellDef> Filename</th>
+        <td mat-cell *matCellDef="let dataItem">{{dataItem.Filename}}</td>
+      </ng-container>
+      <!-- <ng-container matColumnDef="UploadedFile">
+        <th mat-header-cell *matHeaderCellDef> Uploaded ile </th>
+        <td mat-cell *matCellDef="let dataItem"> {{dataItem.UploadedFile}} </td>
+      </ng-container> -->
+      <ng-container matColumnDef="UploadedFile">
+        <th mat-header-cell *matHeaderCellDef>Uploaded File</th>
+        <td mat-cell *matCellDef="let dataItem">
+          <a 
+            *ngIf="dataItem.UploadedFile" 
+            [href]="getFileUrl(dataItem.UploadedFile)" 
+            download="{{dataItem.UploadedFile}}" 
+            class="btn btn-link word-wrap"
+          >{{ dataItem.UploadedFile }}</a>
+        </td>
+      </ng-container>
+      
+
+    <ng-container matColumnDef="Options">
+      <th mat-header-cell *matHeaderCellDef class="text-right"> Options</th>
+      <td mat-cell *matCellDef="let dataItem" class="text-right">
+        <button mat-icon-button color="warn" type="button" data-toggle="modal" data-target="#exampleModal"
+          (click)="editClick(dataItem)" data-backdrop="false" data-keyboard="false">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="accent" (click)="deleteClick(dataItem)">
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<!-- Paginator -->
+<mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons ></mat-paginator>
